@@ -5,6 +5,7 @@ A web application that allows students to apply for dormitory checkout and reser
 ---
 
 ## 📋 Overview  
+
 This project is a **Dormitory Checkout Reservation System**, designed to help students submit checkout requests and schedule their dormitory checkout appointments online.  
 **No login is required for students to make a reservation**, making the process fast and user-friendly.
 
@@ -20,16 +21,19 @@ An **admin interface** is provided for dormitory staff (checkers) to log in, vie
 ## 🛠️ Technologies Used
 
 ### Frontend
+
 - [Next.js](https://nextjs.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
 - TypeScript
 
 ### Backend
+
 - [Node.js](https://nodejs.org/)
 - [Express](https://expressjs.com/)
 - [JWT](https://jwt.io/)
 
 ### Database
+
 - [MongoDB](https://www.mongodb.com/)
 
 ---
@@ -45,11 +49,8 @@ An **admin interface** is provided for dormitory staff (checkers) to log in, vie
 ## 🧪 Future Improvements
 
 - Email notification system for reservations
-
 - Reservation editing or cancellation feature
-
 - Calendar integration
-
 - Mobile app support
 
 ---
@@ -57,4 +58,3 @@ An **admin interface** is provided for dormitory staff (checkers) to log in, vie
 ## 📄 License
 
 This project is licensed under the MIT License.
-
