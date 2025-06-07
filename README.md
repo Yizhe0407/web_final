@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🏠 Dormitory Checkout Reservation System
 
-## Getting Started
+A web application that allows students to apply for dormitory checkout and reserve a time slot online. This system provides secure authentication, intuitive UI, and efficient backend processing to simplify the dormitory checkout process.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 📋 Overview  
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This project is a **Dormitory Checkout Reservation System**, designed to help students submit checkout requests and schedule their dormitory checkout appointments online.  
+**No login is required for students to make a reservation**, making the process fast and user-friendly.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+An **admin interface** is provided for dormitory staff (checkers) to log in, view, and manage all reservation records securely.  
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- The **frontend** is built with **Next.js** and **Tailwind CSS**.  
+- The **backend** is powered by **Express (Node.js)**.  
+- Reservation data is stored in **MongoDB**.  
+- **JWT (JSON Web Token)** is used to authenticate admin users.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🛠️ Technologies Used
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Frontend
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- [Next.js](https://nextjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- TypeScript
 
-## Deploy on Vercel
+### Backend
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- [Node.js](https://nodejs.org/)
+- [Express](https://expressjs.com/)
+- [JWT](https://jwt.io/)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Database
+
+- [MongoDB](https://www.mongodb.com/)
+
+---
+
+## 🚀 Features
+
+- 🔐 Secure JWT-based authentication
+- 📅 Checkout appointment scheduling
+- 🧾 Admin panel for managing all reservations
+
+---
+
+## 🧪 Future Improvements
+
+- Email notification system for reservations
+- Reservation editing or cancellation feature
+- Calendar integration
+- Mobile app support
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
