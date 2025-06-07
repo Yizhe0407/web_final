@@ -3,6 +3,9 @@ import React, { useState } from 'react'
 import { useForm, Controller } from 'react-hook-form'
 import { Button } from "@/components/ui/button"
 import SelectObject from './SelectObject'
+import { api } from '@/lib/api'
+import { useReservationStore } from '@/store/reservationStore'
+import toast from 'react-hot-toast'
 import { CalendarPlus, Send } from 'lucide-react';
 import {
     Dialog,
@@ -19,8 +22,10 @@ type FormValues = {
 }
 
 export default function ReservationForm() {
-    const { control, handleSubmit, watch, resetField } = useForm<FormValues>()
+    const { control, handleSubmit, watch, resetField, reset } = useForm<FormValues>()
     const [open, setOpen] = useState(false) // 控制 Dialog 開關
+    const [isSubmitting, setIsSubmitting] = useState(false)
+    const refreshReservations = useReservationStore((state) => state.refreshReservations)
 
     const building = watch("building")
     const floor = watch("floor")
@@ -43,10 +48,29 @@ export default function ReservationForm() {
     const floorOptions = building ? Object.keys(buildingData[building]) : []
     const roomOptions = building && floor ? buildingData[building][floor] || [] : []
 
-    const onSubmit = (data: FormValues) => {
-        console.log("✅ 表單送出：", data)
-        // 在這裡添加實際的 API 調用邏輯
-        setOpen(false) // 表單送出後關閉 Dialog
+    const onSubmit = async (data: FormValues) => {
+        if (isSubmitting) return;
+
+        setIsSubmitting(true);
+        console.log("✅ 表單送出：", data);
+
+        try {
+            await api.reserve.add(data);
+            console.log("✅ 預約成功");
+            toast.success('預約成功！');
+
+            // Reset form and close dialog
+            reset();
+            setOpen(false);
+
+            // Refresh reservations list
+            await refreshReservations();
+        } catch (error) {
+            console.error("❌ 預約失敗", error);
+            toast.error('預約失敗，請稍後再試');
+        } finally {
+            setIsSubmitting(false);
+        }
     }
 
     return (
@@ -125,9 +149,9 @@ export default function ReservationForm() {
                             )}
                         />
 
-                        <Button type="submit" className="w-full mt-2 flex items-center gap-2">
+                        <Button type="submit" className="w-full mt-2 flex items-center gap-2" disabled={isSubmitting}>
                             <Send className="h-4 w-4" />
-                            送出預約
+                            {isSubmitting ? '送出中...' : '送出預約'}
                         </Button>
                     </form>
                 </DialogHeader>
