@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/api/:path*",
-        destination: "http://localhost:4000/api/:path*"
+        destination: "https://dorm-reservation-backend-585e0b5f4648.herokuapp.com/api/:path*"
       },
     ]
   },
