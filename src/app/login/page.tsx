@@ -13,17 +13,18 @@ export default function LoginPage() {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const router = useRouter();
-    const { isLoggedIn, setLoggedIn } = useAuthStore();
+    const { setLoggedIn } = useAuthStore();
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setError(''); // Clear previous errors
         try {
-            const result = await api.auth.login(username, password);
+            await api.auth.login(username, password);
             setLoggedIn(true); // 更新 Zustand 狀態
             router.push('/');
-        } catch (err: any) {
-            setError(err?.message || '登入失敗，請重試');
+        } catch (err: unknown) {
+            const errorMessage = err instanceof Error ? err.message : '登入失敗，請重試';
+            setError(errorMessage);
         }
     };
 

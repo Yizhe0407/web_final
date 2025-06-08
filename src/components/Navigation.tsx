@@ -15,12 +15,12 @@ export default function Navigation() {
       try {
         await api.auth.me();
         setLoggedIn(true);
-      } catch (e) {
+      } catch {
         setLoggedIn(false);
       }
     };
     checkToken();
-  }, []);
+  }, [setLoggedIn]);
 
   const handleLogout = async () => {
     await api.auth.logout(); // 呼叫後端清除 cookie

@@ -1,9 +1,7 @@
 "use client"
 import React from 'react'
-import { api } from '@/lib/api'
 import ReservationCard from './ReservationCard'
 import { useReservationStore, Reservation } from '@/store/reservationStore'
-import toast from 'react-hot-toast'
 
 type FilterType = 'all' | 'pending' | 'qualified' | 'unqualified';
 

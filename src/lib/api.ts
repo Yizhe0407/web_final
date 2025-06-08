@@ -61,7 +61,7 @@ export const api = {
         }
     },
     reserve: {
-        add: async (reservationData: any) => {
+        add: async (reservationData: Record<string, unknown>) => {
             try {
                 const response = await fetch(`${API_URL}/reserve/add`, {
                     method: 'POST',
